@@ -1,0 +1,12 @@
+# Saídas geradas por projeto (podem conter IDs de clientes)
+rastreamento.config.json
+container-gtm.json
+rastreamento-snippets/
+teste-rastreamento/
+
+# Dependências e ficheiros do sistema
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

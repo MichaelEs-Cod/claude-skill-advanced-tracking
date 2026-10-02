@@ -1,0 +1,32 @@
+<script>
+  /* Rastreamento — colar no <head>, o mais acima possível (antes de qualquer outra tag de medição).
+     Gerado pelo montar_snippets.py a partir do ficheiro de configuração; para mudar, edite-o e gere de novo. */
+  window.TRK_CONFIG = %%TRK_CONFIG%%;
+  window.TRK_GTM_ID = window.TRK_CONFIG.gtm_id || '';
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  /* Consent Mode v2: tudo negado até o visitante escolher; a escolha guardada é reaplicada antes do GTM. */
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'denied', functionality_storage: 'granted', security_storage: 'granted',
+    wait_for_update: 500
+  });
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', true);
+  dataLayer.push({ lp_name: window.TRK_CONFIG.lp_name, lp_version: window.TRK_CONFIG.lp_version });
+  (function () {
+    try {
+      var c = JSON.parse(localStorage.getItem(window.TRK_CONFIG.consent_key || 'trk_consent_v1'));
+      if (!c || c.v !== 1) return;
+      var a = c.analytics ? 'granted' : 'denied', m = c.marketing ? 'granted' : 'denied';
+      gtag('consent', 'update', { analytics_storage: a, ad_storage: m, ad_user_data: m, ad_personalization: m });
+      dataLayer.push({ event: 'consent_restored', consent_analytics: a, consent_marketing: m });
+    } catch (e) { /* sem armazenamento: fica tudo negado */ }
+  })();
+  (function (w, d, s, l, i) {
+    if (!i) return;
+    w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+    j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', window.TRK_GTM_ID);
+</script>

@@ -1,0 +1,17 @@
+<div class="consent" id="consent" role="region" aria-labelledby="consent-title" hidden>
+  <div class="consent__inner">
+    <p class="consent__title" id="consent-title">%%T_TITLE%%</p>
+    <p class="consent__text">%%T_TEXT%% <a href="%%PRIVACY_URL%%" target="_blank" rel="noopener">%%T_PRIVACY%%</a>.</p>
+    <div class="consent__prefs" id="consent-prefs" hidden>
+      <label class="consent__option"><input type="checkbox" checked disabled> <span>%%T_NEEDED%%</span></label>
+      <label class="consent__option"><input type="checkbox" id="consent-analytics"> <span>%%T_STATS%%</span></label>
+      <label class="consent__option"><input type="checkbox" id="consent-marketing"> <span>%%T_MKT%%</span></label>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="consent__btn consent__btn--secondary" data-consent="reject">%%T_REJECT%%</button>
+      <button type="button" class="consent__btn consent__btn--link" data-consent="customize" aria-expanded="false" aria-controls="consent-prefs">%%T_CUSTOMIZE%%</button>
+      <button type="button" class="consent__btn consent__btn--secondary" data-consent="save" hidden>%%T_SAVE%%</button>
+      <button type="button" class="consent__btn consent__btn--primary" data-consent="accept">%%T_ACCEPT%%</button>
+    </div>
+  </div>
+</div>

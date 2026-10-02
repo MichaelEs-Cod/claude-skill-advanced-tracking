@@ -1,0 +1,38 @@
+/* Banner de cookies (Aceitar / Recusar / Personalizar com o mesmo destaque — RGPD/LGPD).
+   Cores e fonte por variáveis: o montar_snippets.py troca a cor de destaque pela do projeto. */
+.consent {
+  --trk-accent: %%COR_DESTAQUE%%;
+  --trk-dark: #3f4441;
+  --trk-text: #2b2f2c;
+  --trk-link: #1f4e79;
+  position: fixed; z-index: 2147483000; left: 12px; right: 12px; bottom: 12px;
+  display: flex; justify-content: center; pointer-events: none;
+}
+.consent[hidden] { display: none; }
+.consent__inner { width: min(100%, 760px); padding: 16px 18px 14px; border-radius: 14px; background: #fff; color: var(--trk-text); box-shadow: 0 10px 40px rgba(15, 30, 45, 0.28), 0 0 0 1px rgba(15, 30, 45, 0.06); pointer-events: auto; font: 400 14px / 1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: left; }
+.consent__title { margin: 0 0 4px; color: var(--trk-link); font-weight: 700; font-size: 15px; }
+.consent__text { margin: 0; }
+.consent__text a { color: var(--trk-link); font-weight: 600; }
+.consent__prefs { display: grid; gap: 8px; margin: 12px 0 2px; padding: 12px; border-radius: 10px; background: #f3f4f6; }
+.consent__prefs[hidden] { display: none; }
+.consent__option { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.consent__option input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--trk-accent); }
+.consent__actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-end; margin-top: 12px; }
+.consent__btn { min-height: 44px; padding: 0 20px; border: 0; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 700; line-height: 1; cursor: pointer; }
+.consent__btn[hidden] { display: none; }
+.consent__btn--primary { background: var(--trk-accent); color: #fff; }
+.consent__btn--secondary { background: var(--trk-dark); color: #fff; }
+.consent__btn--link { margin-right: auto; padding: 0 6px; background: none; color: var(--trk-link); text-decoration: underline; text-underline-offset: 3px; }
+.consent__btn:focus-visible, .consent-open__btn:focus-visible { outline: 3px solid #1855d8; outline-offset: 2px; }
+@media (max-width: 479px) {
+  .consent__actions { justify-content: stretch; }
+  .consent__btn--primary, .consent__btn--secondary { flex: 1 1 40%; }
+  .consent__btn--link { order: 3; flex-basis: 100%; margin: 0; }
+}
+
+/* "Preferências de cookies": no rodapé do site (HTML próprio) ou flutuante (plataformas sem acesso ao rodapé). */
+[data-consent-open][hidden] { display: none; }
+.consent-open__btn { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.consent-open__btn:hover { text-decoration: underline; }
+.consent-open--flutuante { position: fixed; z-index: 2147482999; left: 12px; bottom: 12px; }
+.consent-open--flutuante .consent-open__btn { padding: 6px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); color: var(--trk-text, #2b2f2c); font: 600 12px / 1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; box-shadow: 0 2px 10px rgba(15, 30, 45, 0.18); }

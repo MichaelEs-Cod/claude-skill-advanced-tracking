@@ -1,0 +1,69 @@
+{
+  "_leia": "Copie para a pasta do projeto como rastreamento.config.json e preencha. IDs vazios = tags geradas PAUSADAS. Acrescente sempre no FIM das listas (conversoes, parametros_ga4) para os IDs do GTM não mudarem entre versões. Explicação de cada campo: references/configuracao.md.",
+  "projeto": "Cliente - LP Nome da Página",
+  "url_publicada": "https://exemplo.pages.dev/",
+  "plataforma": "html",
+  "idioma_banner": "pt-BR",
+  "politica_privacidade": "https://exemplo.com.br/politica-de-privacidade/",
+  "cor_destaque": "#f27f22",
+  "chave_consentimento": "trk_consent_v1",
+  "pagina": { "lp_name": "nome_da_lp", "lp_version": "v1" },
+
+  "gtm_id": "GTM-XXXXXXX",
+  "ga4_id": "G-XXXXXXXXXX",
+
+  "google_ads": {
+    "conversion_id": "",
+    "conversoes": [
+      { "nome": "Pedido de orçamento", "evento": "click_quote_request", "rotulo": "" },
+      { "nome": "Clique no WhatsApp", "evento": "click_whatsapp", "rotulo": "" },
+      { "nome": "Clique no telefone", "evento": "click_phone", "rotulo": "" },
+      { "nome": "Formulário enviado", "evento": "generate_lead", "rotulo": "" }
+    ]
+  },
+
+  "meta": {
+    "pixel_id": "",
+    "lead": ["click_quote_request", "click_info_request", "generate_lead"],
+    "contact": ["click_phone", "click_email", "click_whatsapp"],
+    "envolvimento_segundos": 60,
+    "nome_conteudo": "Nome da página"
+  },
+
+  "ctas": {
+    "agendar_visita": { "event": "click_cta" }
+  },
+
+  "eventos_ga4": [
+    "click_quote_request", "click_info_request", "click_email", "click_phone", "click_whatsapp",
+    "click_social", "click_map", "click_address", "click_outbound", "click_cta", "generate_lead",
+    "scroll_depth", "section_view", "engaged_time", "map_interaction"
+  ],
+  "parametros_ga4": [
+    "cta_name", "cta_location", "link_url", "contact_type", "social_network",
+    "section_name", "percent_scrolled", "engagement_seconds", "form_name", "form_source"
+  ],
+
+  "teste": {
+    "query": "?utm_source=qa&utm_medium=teste&utm_campaign=teste_rastreamento&gclid=QA-teste-rastreamento",
+    "consentimento": {
+      "banner": "#consent",
+      "aceitar": "[data-consent=\"accept\"]",
+      "recusar": "[data-consent=\"reject\"]",
+      "personalizar": "[data-consent=\"customize\"]",
+      "guardar": "[data-consent=\"save\"]",
+      "estatistica": "#consent-analytics",
+      "marketing": "#consent-marketing",
+      "preferencias": "[data-consent-open] button"
+    },
+    "botoes": [
+      { "seletor": "[data-cta=\"solicitar_orcamento\"]", "evento": "click_quote_request", "params": { "cta_name": "solicitar_orcamento", "cta_location": "orcamento" } },
+      { "seletor": "a[href^=\"https://wa.me\"]", "evento": "click_whatsapp", "params": { "cta_name": "whatsapp" } },
+      { "seletor": "a[href^=\"tel:\"]", "evento": "click_phone", "params": { "cta_name": "telefone" } }
+    ],
+    "secoes": [],
+    "mapa_iframe": "",
+    "link_atribuicao": "",
+    "segundos_envolvimento": [15, 30, 60, 120]
+  }
+}
